@@ -1,9 +1,8 @@
 pipeline {
     agent any
-
     stages {
         stage ('Compile stage') {
-            setps {
+            steps {
                 withMaven(maven: 'LOCAL_MAVEN') {
                     sh 'mvn clean compile'
                 }
@@ -11,7 +10,7 @@ pipeline {
         }
 
         stage ('Test stage') {
-            setps {
+            steps {
                 withMaven(maven: 'LOCAL_MAVEN') {
                     sh 'mvn test'
                 }
